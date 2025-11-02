@@ -37,7 +37,7 @@ A polished, user-focused quiz application that tests JavaScript knowledge. The a
 9. [Contributing](#contributing)
 10. [License & Contact](#license--contact)
 
----
+
 
 ## 🔍 Live Preview
 
@@ -47,7 +47,7 @@ A polished, user-focused quiz application that tests JavaScript knowledge. The a
 
 > Tip: GitHub Pages or Netlify work great for static demos.
 
----
+
 
 ## ⚡ Quick Start
 
@@ -73,7 +73,7 @@ These commands assume you already have the project files (`index.html`, `style.c
    http-server -c-1
    ```
 
----
+
 
 ## 🗂 Project Structure
 
@@ -84,7 +84,7 @@ These commands assume you already have the project files (`index.html`, `style.c
   └─ script.js      # Logic: questions, timer, review
 ```
 
----
+
 
 ## 🧠 How It Works (Flow)
 
@@ -94,7 +94,7 @@ These commands assume you already have the project files (`index.html`, `style.c
 4. **Auto-skip** — if timer reaches 0, answer saved as `No answer`, and the quiz proceeds.
 5. **Results** — final score shown with a detailed review list: each question, the selected answer (colored), and the correct answer if incorrect.
 
----
+
 
 ## 🎨 Customization Guide
 
@@ -113,7 +113,7 @@ Below are quick places to edit for personalization:
 
 * **Store results**: to persist results use `localStorage.setItem('quizResults', JSON.stringify(data))` and show a `History` page.
 
----
+
 
 ## ♿ Accessibility & UX
 
@@ -122,7 +122,7 @@ Below are quick places to edit for personalization:
 * Form validation: email validated with a standard regex and early error messaging.
 * Reduce motion: respect the user’s `prefers-reduced-motion` media query when adding animations.
 
----
+
 
 ## ✅ Testing Checklist
 
@@ -133,14 +133,14 @@ Below are quick places to edit for personalization:
 * [ ] Result review shows correct / incorrect answers
 * [ ] Works on mobile (tap targets big enough) and desktop
 
----
+
 
 ## 📦 Deployment Tips
 
 * This is a static app: upload to GitHub Pages, Netlify, Vercel, or any static host.
 * For GitHub Pages: push to `gh-pages` branch or enable Pages in repo settings.
 
----
+
 
 ## 🤝 Contributing
 
@@ -153,7 +153,7 @@ Contributions are welcome — follow these steps:
 
 Please keep changes focused and add tests or a short demo if the change alters behavior.
 
----
+
 
 ## 🧾 License
 
@@ -161,18 +161,18 @@ Choose a license for your repo. Example: MIT
 
 ```text
 MIT License
-Copyright (c) YEAR <Your Name>
+Copyright (c) YEAR <M.MOHID>
 Permission is hereby granted...
 ```
 
----
+
 
 ## 📬 Contact & Credits
 
-* Author: **Your Name** – keep the credit here or replace with your details
+* Author: **MUHAMMAD MOHID ** – keep the credit here or replace with your details
 * Inspired UI patterns: modern apps, micro-interactions, progressive feedback
 
----
+
 
 ## ✨ Extras & Next Steps
 
@@ -181,6 +181,6 @@ Permission is hereby granted...
 * Add social share badges for high scores
 * Add analytics to track most-missed questions
 
----
 
-*Made with ❤️ — a compact, professional README to ship with your JavaScript quiz app.*
+
+*Made with ❤️ — a compact, professional quiz application code.
