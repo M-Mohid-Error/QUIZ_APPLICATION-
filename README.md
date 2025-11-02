@@ -2,13 +2,13 @@
 
 > **Sleek, responsive, and accessible quiz app built with HTML, CSS, and JavaScript.**
 
----
+
 
 ## 🚀 Project Summary
 
 A polished, user-focused quiz application that tests JavaScript knowledge. The app combines refined UI, smooth animations, and clear UX flows: user info capture, a timed multi-question quiz, and a full answer review at the end. This README gives professional, hands-on instructions for installation, customization, and contribution.
 
----
+
 
 ## 🎯 Key Features
 
@@ -22,7 +22,7 @@ A polished, user-focused quiz application that tests JavaScript knowledge. The a
 * **Accessible controls** (keyboard focus states and readable contrast)
 * **Single-file deployment**: simple HTML/CSS/JS trio — no build tools required
 
----
+
 
 ## 🧭 Table of Contents
 
