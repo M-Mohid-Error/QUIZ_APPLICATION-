@@ -1,0 +1,44 @@
+#review {
+  text-align: left;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.review-item {
+  margin-bottom: 12px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-item h4 {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.review-item p {
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.correct {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.wrong {
+  color: #ff5252;
+  font-weight: 600;
+}
+
+.correct-answer {
+  color: #ffd700;
+  font-style: italic;
+}
