@@ -1,160 +1,186 @@
-const infoScreen = document.getElementById("info-screen");
-const quizContainer = document.getElementById("quiz-container");
-const resultScreen = document.getElementById("result-screen");
+# JavaScript Quiz App — Interactive & Eye-Catching
 
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const rollInput = document.getElementById("roll");
-const instituteInput = document.getElementById("institute");
-const userForm = document.getElementById("user-form");
+> **Sleek, responsive, and accessible quiz app built with HTML, CSS, and JavaScript.**
 
-const questionEl = document.getElementById("question");
-const optionsEl = document.getElementById("options");
-const timeEl = document.getElementById("time");
-const timeBar = document.getElementById("time-bar");
-const progressEl = document.getElementById("progress");
-const userDisplay = document.getElementById("user-display");
-const resultMessage = document.getElementById("result-message");
-const reviewContainer = document.getElementById("review");
-const restartBtn = document.getElementById("restart-btn");
+---
 
-const questions = [
-  { q: "Which keyword is used to declare a variable in JavaScript?", options: ["let", "var", "const", "All of these"], answer: "All of these" },
-  { q: "Which company developed JavaScript?", options: ["Microsoft", "Sun Microsystems", "Netscape", "Google"], answer: "Netscape" },
-  { q: "Which method is used to write HTML content in JavaScript?", options: ["document.write()", "console.log()", "window.alert()", "innerHTML"], answer: "document.write()" },
-  { q: "What type of language is JavaScript?", options: ["Object-Oriented", "Object-Based", "Procedural", "None"], answer: "Object-Based" },
-  { q: "Inside which HTML element do we put JavaScript?", options: ["<js>", "<javascript>", "<script>", "<code>"], answer: "<script>" },
-  { q: "Which symbol is used for comments in JavaScript?", options: ["//", "/* */", "<!-- -->", "#"], answer: "//" },
-  { q: "How do you create a function in JavaScript?", options: ["function myFunc()", "create function myFunc()", "def myFunc()", "func myFunc()"], answer: "function myFunc()" },
-  { q: "Which event occurs when the user clicks on an HTML element?", options: ["onchange", "onmouseclick", "onclick", "onmouseover"], answer: "onclick" },
-  { q: "Which method converts JSON to a JavaScript object?", options: ["JSON.parse()", "JSON.stringify()", "JSON.convert()", "parse.JSON()"], answer: "JSON.parse()" },
-  { q: "Which built-in method adds one or more elements to the end of an array?", options: ["last()", "push()", "append()", "add()"], answer: "push()" }
-];
+## 🚀 Project Summary
 
-let currentQuestion = 0;
-let score = 0;
-let timer;
-let timeLeft = 15;
-let userName = "";
-let userAnswers = [];
+A polished, user-focused quiz application that tests JavaScript knowledge. The app combines refined UI, smooth animations, and clear UX flows: user info capture, a timed multi-question quiz, and a full answer review at the end. This README gives professional, hands-on instructions for installation, customization, and contribution.
 
-// Validate user info and start quiz
-userForm.addEventListener("submit", e => {
-  e.preventDefault();
-  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
-  if (!emailValid) {
-    alert("⚠️ Please enter a valid email address.");
-    return;
-  }
-  userName = nameInput.value.trim();
-  infoScreen.classList.add("hidden");
-  quizContainer.classList.remove("hidden");
-  userDisplay.textContent = `👤 ${userName}`;
-  startQuiz();
-});
+---
 
-function startQuiz() {
-  currentQuestion = 0;
-  score = 0;
-  userAnswers = [];
-  showQuestion();
-  startTimer();
-}
+## 🎯 Key Features
 
-function showQuestion() {
-  const current = questions[currentQuestion];
-  questionEl.textContent = current.q;
-  optionsEl.innerHTML = "";
-  progressEl.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+* **Personal info capture** (name, email, roll, institute) with email validation
+* **10 JavaScript questions** (configurable)
+* **Per-question countdown timer** with animated progress bar
+* **Interactive alerts** for right/wrong answers
+* **Progress indicator** (e.g., `Question 3 of 10`)
+* **Detailed results page** showing each question, selected answer, correctness, and the correct answer when missed
+* **Responsive layout** optimized for mobile and desktop
+* **Accessible controls** (keyboard focus states and readable contrast)
+* **Single-file deployment**: simple HTML/CSS/JS trio — no build tools required
 
-  current.options.forEach(opt => {
-    const btn = document.createElement("div");
-    btn.classList.add("option");
-    btn.textContent = opt;
-    btn.onclick = () => checkAnswer(opt);
-    optionsEl.appendChild(btn);
-  });
-}
+---
 
-function checkAnswer(selected) {
-  const correct = questions[currentQuestion].answer;
-  const isCorrect = selected === correct;
+## 🧭 Table of Contents
 
-  userAnswers.push({
-    question: questions[currentQuestion].q,
-    selected,
-    correctAnswer: correct,
-    isCorrect
-  });
+1. [Live Preview](#live-preview)
+2. [Quick Start](#quick-start)
+3. [Project Structure](#project-structure)
+4. [How It Works (Flow)](#how-it-works-flow)
+5. [Customization Guide](#customization-guide)
+6. [Accessibility & UX Considerations](#accessibility--ux-considerations)
+7. [Testing](#testing)
+8. [Deployment](#deployment)
+9. [Contributing](#contributing)
+10. [License & Contact](#license--contact)
 
-  if (isCorrect) {
-    alert("✅ Correct!");
-    score++;
-  } else {
-    alert(`❌ Wrong! Correct: ${correct}`);
-  }
-  nextQuestion();
-}
+---
 
-function nextQuestion() {
-  clearInterval(timer);
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
-    timeLeft = 15;
-    showQuestion();
-    startTimer();
-  } else {
-    endQuiz();
-  }
-}
+## 🔍 Live Preview
 
-function startTimer() {
-  timeLeft = 15;
-  timeEl.textContent = timeLeft;
-  timeBar.style.width = "100%";
+> Replace with a hosted demo or a GIF screenshot for an interactive showcase. Example:
 
-  timer = setInterval(() => {
-    timeLeft--;
-    timeEl.textContent = timeLeft;
-    timeBar.style.width = `${(timeLeft / 15) * 100}%`;
+`https://your-domain.com/quiz-app`
 
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      alert("⏰ Time's up!");
-      userAnswers.push({
-        question: questions[currentQuestion].q,
-        selected: "No answer",
-        correctAnswer: questions[currentQuestion].answer,
-        isCorrect: false
-      });
-      nextQuestion();
-    }
-  }, 1000);
-}
+> Tip: GitHub Pages or Netlify work great for static demos.
 
-function endQuiz() {
-  clearInterval(timer);
-  quizContainer.classList.add("hidden");
-  resultScreen.classList.remove("hidden");
+---
 
-  let emoji = score === questions.length ? "🏆" : score > 5 ? "😊" : "😢";
-  resultMessage.innerHTML = `${emoji} ${userName}, you scored <b>${score}</b> out of <b>${questions.length}</b>!`;
+## ⚡ Quick Start
 
-  reviewContainer.innerHTML = "";
-  userAnswers.forEach((item, idx) => {
-    const div = document.createElement("div");
-    div.classList.add("review-item");
-    div.innerHTML = `
-      <h4>Q${idx + 1}. ${item.question}</h4>
-      <p>Your answer: <span class="${item.isCorrect ? "correct" : "wrong"}">${item.selected}</span></p>
-      ${!item.isCorrect ? `<p>Correct answer: <span class="correct-answer">${item.correctAnswer}</span></p>` : ""}
-    `;
-    reviewContainer.appendChild(div);
-  });
-}
+These commands assume you already have the project files (`index.html`, `style.css`, `script.js`).
 
-restartBtn.addEventListener("click", () => {
-  resultScreen.classList.add("hidden");
-  infoScreen.classList.remove("hidden");
-  userForm.reset();
-});
+1. **Open locally**
+
+   * Double-click `index.html` (works in any modern browser).
+
+2. **Serve with a simple static server (recommended during development):**
+
+   ```bash
+   # Python 3
+   python -m http.server 8000
+
+   # then open http://localhost:8000 in your browser
+   ```
+
+3. **Run a quick dev server with npm (optional):**
+
+   ```bash
+   npm install -g http-server
+   http-server -c-1
+   ```
+
+---
+
+## 🗂 Project Structure
+
+```
+/quiz-app
+  ├─ index.html     # Markup: screens for info, quiz, results
+  ├─ style.css      # Styles: responsive + animation
+  └─ script.js      # Logic: questions, timer, review
+```
+
+---
+
+## 🧠 How It Works (Flow)
+
+1. **Info Screen** — user enters name, email, roll, institute. Email is validated with a regex. If invalid, a friendly alert appears.
+2. **Quiz Screen** — first question appears, timer starts (default: 15s). Animated progress bar shows remaining time.
+3. **Answering** — user selects an option; an alert indicates Correct or Wrong. Selection is recorded.
+4. **Auto-skip** — if timer reaches 0, answer saved as `No answer`, and the quiz proceeds.
+5. **Results** — final score shown with a detailed review list: each question, the selected answer (colored), and the correct answer if incorrect.
+
+---
+
+## 🎨 Customization Guide
+
+Below are quick places to edit for personalization:
+
+* **Change questions**: open `script.js` and edit the `questions` array — every entry is an object: `{ q, options, answer }`.
+
+* **Timer duration**: in `script.js`, update the `timeLeft` initial value and the progress calculation.
+
+* **Styling & theme**: edit `style.css` — gradients, fonts, spacing and animations are centralized there. The project uses `Poppins` from Google Fonts; swap it or add more font weights if needed.
+
+* **Alerts**: currently the app uses `alert()` for simplicity. Replace with custom toasts (e.g., a small floating element) by:
+
+  1. Creating a `.toast` element in HTML/CSS
+  2. Replacing `alert()` calls with `showToast(message, type)` in `script.js`
+
+* **Store results**: to persist results use `localStorage.setItem('quizResults', JSON.stringify(data))` and show a `History` page.
+
+---
+
+## ♿ Accessibility & UX
+
+* Keyboard accessible: ensure `.option` elements are focusable (`tabindex="0"`) if converted to `<div>`s. Consider using `<button>` elements for native keyboard behavior.
+* Color contrast: use high-contrast palettes for text on gradients; `:focus` and `:hover` states are present for usability.
+* Form validation: email validated with a standard regex and early error messaging.
+* Reduce motion: respect the user’s `prefers-reduced-motion` media query when adding animations.
+
+---
+
+## ✅ Testing Checklist
+
+* [ ] Email validation rejects bad formats (e.g., `user@`, `@domain`, `no-at-symbol`)
+* [ ] Timer counts down and progresses visually
+* [ ] Selecting an option records answer and advances
+* [ ] Timeouts record `No answer` and advance
+* [ ] Result review shows correct / incorrect answers
+* [ ] Works on mobile (tap targets big enough) and desktop
+
+---
+
+## 📦 Deployment Tips
+
+* This is a static app: upload to GitHub Pages, Netlify, Vercel, or any static host.
+* For GitHub Pages: push to `gh-pages` branch or enable Pages in repo settings.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome — follow these steps:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/my-change`
+3. Commit your changes: `git commit -m "feat: improve X"`
+4. Open a pull request with a clear description and screenshots/GIFs if applicable
+
+Please keep changes focused and add tests or a short demo if the change alters behavior.
+
+---
+
+## 🧾 License
+
+Choose a license for your repo. Example: MIT
+
+```text
+MIT License
+Copyright (c) YEAR <Your Name>
+Permission is hereby granted...
+```
+
+---
+
+## 📬 Contact & Credits
+
+* Author: **Your Name** – keep the credit here or replace with your details
+* Inspired UI patterns: modern apps, micro-interactions, progressive feedback
+
+---
+
+## ✨ Extras & Next Steps
+
+* Add sound feedback (right/wrong) with small, unobtrusive audio sprites
+* Export a PDF summary of the completed quiz
+* Add social share badges for high scores
+* Add analytics to track most-missed questions
+
+---
+
+*Made with ❤️ — a compact, professional README to ship with your JavaScript quiz app.*
