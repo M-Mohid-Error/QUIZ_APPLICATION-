@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JavaScript Quiz</title>
+  <title>JavaScript Quiz App</title>
   <link rel="stylesheet" href="style.css" />
-  
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="container">
-    <!-- Intro Screen -->
+    <!-- Personal Info Form -->
     <div id="info-screen">
       <h1>🧠 JavaScript Master Quiz</h1>
-      <p>Fill your details before starting the quiz</p>
+      <p>Fill in your details to start the quiz</p>
       <form id="user-form">
         <input type="text" id="name" placeholder="Full Name" required />
         <input type="email" id="email" placeholder="Email Address" required />
@@ -35,7 +34,9 @@
 
       <div class="timer-container">
         <div class="timer">⏱️ Time left: <span id="time">15</span>s</div>
-        <div class="progress-bar"><div class="progress-fill" id="time-bar"></div></div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="time-bar"></div>
+        </div>
       </div>
     </div>
 

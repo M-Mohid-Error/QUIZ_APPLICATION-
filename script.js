@@ -38,7 +38,7 @@ let timeLeft = 15;
 let userName = "";
 let userAnswers = [];
 
-// Validate and start quiz
+// Validate user info and start quiz
 userForm.addEventListener("submit", e => {
   e.preventDefault();
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
@@ -46,7 +46,7 @@ userForm.addEventListener("submit", e => {
     alert("⚠️ Please enter a valid email address.");
     return;
   }
-  userName = nameInput.value;
+  userName = nameInput.value.trim();
   infoScreen.classList.add("hidden");
   quizContainer.classList.remove("hidden");
   userDisplay.textContent = `👤 ${userName}`;
